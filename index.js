@@ -118,10 +118,10 @@ Baby.prototype.play = function() {
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. window/global binding, this has no context so it wi
-  2. 
-  3. 
-  4. 
+  1. window/global binding, this has no context so it will show all the methods for JS
+  2. implicit Binding: the this function is invoked using dot notation and refers to the object to the left of the dot.
+  3. Explicit Binding: can call, apply or blind, you can pass through your objects as arguments for your function
+  4. New Binding: create a generic object where this points to all the attributes you want to assign to other New Object objects that relate back to the core generic object
 */
 
 
