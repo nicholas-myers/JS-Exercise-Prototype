@@ -79,14 +79,21 @@ function Car(model, milesPerGallon) {
 }
 
 Car.prototype.fill = function(gallons) {
-  this.tank = this.tank + gallons;
+  this.tank += gallons;
 };
 
 Car.prototype.drive = function(distance) {
-  this.odemeter = this.odometer + distance;
-  // distance / gallons used = milespergallon
-  let gallonsUsed = this.milesPerGallon * distance;
-  this.tank = this.tank - gallonsUsed;
+  let canDrive = this.tank * this.milesPerGallon
+  if (distance < canDrive) {
+    this.odometer = this.odometer + distance;
+    this.tank -= distance / this.milesPerGallon;
+  }
+  else if (distance >= canDrive) {
+    this.odometer = this.odometer + canDrive;
+    this.tank =this.tank - this.tank;
+    return `I ran out of fuel at ${this.odometer} miles!`;
+  }
+  
 };
 
 /*
@@ -111,7 +118,7 @@ Baby.prototype.play = function() {
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
+  1. window/global binding, this has no context so it wi
   2. 
   3. 
   4. 
